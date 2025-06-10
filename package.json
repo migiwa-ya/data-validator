@@ -1,6 +1,6 @@
 {
   "name": "@migiwa-ya/data-validator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lightweight parser + runtime validator for YAML / front-matter JSON-like data, extracted from StaticQL.",
   "type": "module",
   "main": "./dist/index.js",
@@ -13,12 +13,11 @@
     "./cli": "./dist/cli.js"
   },
   "bin": {
-    "validate": "./dist/cli.js"
+    "data-validator": "./dist/cli.js"
   },
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
     "test": "vitest run",
     "release": "npm publish --access public"
   },

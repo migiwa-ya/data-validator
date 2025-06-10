@@ -19,7 +19,6 @@ describe("parsers", () => {
 
   it("parseFrontmatter", () => {
     const data = parseFrontmatter(read("sample.md"));
-    console.log(data)
     expect(data).toEqual({ id: "shr-001", name: "Frontmatter Shrine" });
   });
 });

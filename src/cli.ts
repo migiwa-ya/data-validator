@@ -44,7 +44,7 @@ for (const file of files) {
     switch (ext) {
       case ".md":
       case ".mdx":
-        data = parseFrontmatter(raw).data;
+        data = parseFrontmatter(raw);
         break;
       case ".yaml":
       case ".yml":
