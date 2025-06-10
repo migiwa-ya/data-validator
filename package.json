@@ -1,0 +1,49 @@
+{
+  "name": "@migiwa-ya/data-validator",
+  "version": "0.1.0",
+  "description": "Lightweight parser + runtime validator for YAML / front-matter JSON-like data, extracted from StaticQL.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./cli": "./dist/cli.js"
+  },
+  "bin": {
+    "validate": "./dist/cli.js"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "test": "vitest run",
+    "release": "npm publish --access public"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "globby": "^14.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.3"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "validator",
+    "yaml",
+    "frontmatter",
+    "runtime-validation"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/migiwa-ya/data-validator"
+  }
+}
