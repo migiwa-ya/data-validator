@@ -10,17 +10,24 @@ function run(cmd: string) {
 }
 
 describe("CLI validate", () => {
-  it("returns 0 on success", () => {
+  it("returns 1 on success", () => {
     const out = run(
       `node ${CLI} "${FIX}/sample.yml" --schema ${FIX}/schema.json`
     );
     expect(out).toMatch(/files passed/);
   });
 
-  it("returns 1 on failure", () => {
+  it("returns 2 on success (glob arg)", () => {
     const out = run(
-      `node ${CLI} "${FIX}/sample.md" --schema ${FIX}/schema.json`
+      `node ${CLI} "${FIX}/*.md" --schema ${FIX}/schema.json`
     );
-    expect(out).toMatch(/files passed/);
+    expect(out).toMatch(/2 files passed/);
+  });
+
+  it("returns 2 on success (multiple args)", () => {
+    const out = run(
+      `node ${CLI} "${FIX}/sample1.md" "${FIX}/sample2.md" --schema ${FIX}/schema.json`
+    );
+    expect(out).toMatch(/2 files passed/);
   });
 });

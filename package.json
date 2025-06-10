@@ -1,6 +1,6 @@
 {
   "name": "@migiwa-ya/data-validator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Lightweight parser + runtime validator for YAML / front-matter JSON-like data, extracted from StaticQL.",
   "type": "module",
   "main": "./dist/index.js",

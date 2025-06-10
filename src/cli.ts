@@ -11,21 +11,18 @@ import { parseFrontmatter } from "./parsers/frontmatter.js";
 program
   .name("validate")
   .description("Validate YAML / front-matter / JSON against a JSON-like schema")
-  .argument(
-    "<glob>",
-    "File or glob pattern to validate (e.g. contents/**/*.md)"
-  )
+  .argument("<patterns...>", "File(s) or glob pattern(s) to validate")
   .option("--schema <file>", "Schema JSON file", "schema.json")
   .parse();
 
-const [pattern] = program.args;
+const patterns = program.args
 const { schema: schemaPath } = program.opts<{ schema: string }>();
 
 // ---- load schema ----------------------------------------------------------
 const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
 
 // ---- collect files --------------------------------------------------------
-const files = await globby(pattern);
+const files = await globby(patterns);
 
 if (files.length === 0) {
   console.error("No matching files.");
